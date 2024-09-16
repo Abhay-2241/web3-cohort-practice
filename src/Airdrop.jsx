@@ -1,19 +1,23 @@
 import { useConnection, useWallet } from "@solana/wallet-adapter-react"
 import { Connection } from "@solana/web3.js";
+import { Buffer } from "buffer";
+
 
 export const Airdrop = () => {
 
+    window.Buffer = Buffer;
     const wallet = useWallet();
     const {connection} = useConnection();
+    
 
     async function Airdropsol() {
-       await connection.requestAirdrop(wallet.publicKey , 1000000000);
-       alert("airdrop done");
-      
+        
+            console.log("okie")
+            await connection.requestAirdrop(wallet.publicKey , 1000000000);
+            console.log("dokie")
+            alert("airdrop done");        
     }
-       
-    
-    return (
+     return (
         <>
         <div>
             Hey Mr 
